@@ -8,6 +8,7 @@ class Node {
 class SLL {
     constructor() {
         this.head = null;
+        this.size = 0;
     }
 
     // return true or false if this.head is null
@@ -25,10 +26,12 @@ class SLL {
             someNode.next = this.head;
             this.head = someNode;
         }
+        this.size ++ 
     }
     // create a new node with given data, add it to the head. return void
     addDataToFront(data) { 
         var newNode = new Node(data); // create a new node with the data
+        this.size ++
         newNode.next = this.head; // set the new node's next to the head
         this.head = newNode; // move the head to the new node
         return this; // return back the instance so we can chain methods
@@ -40,7 +43,6 @@ class SLL {
         // console.log(this.head.next.data);
         // create a temp var to run through
         var runner = this.head;
-        var size = 0;
         while (runner != null) {
             console.log(runner.data);
             // move runner
@@ -70,6 +72,7 @@ class SLL {
         var runner = this.head;
         this.head = runner.next;
         runner.next = null;
+        this.size --
 
         return runner;
     }
@@ -106,7 +109,6 @@ class SLL {
     }
 
     // return the size of the current linked list
-    // BONUS: how might you do this without linearly traversing the list? O(1)
     size() {
         if (this.head === null){
             return "Empty list"
@@ -119,6 +121,9 @@ class SLL {
         }
         return size
     }
+    // BONUS: how might you do this without linearly traversing the list? O(1)
+    // To find size with complexity of O(1), add something like "this.size = 0" to the SLL constructor, and then whenever a new node is added, increment the size by 1 (and whenver a node is removed, decrement the size by 1)
+    // Code snippets for size are included above
 }
 
 
