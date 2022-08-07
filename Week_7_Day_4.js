@@ -107,7 +107,17 @@ class SLL {
 
     // return the size of the current linked list
     // BONUS: how might you do this without linearly traversing the list? O(1)
-    size() { 
+    size() {
+        if (this.head === null){
+            return "Empty list"
+        }
+        var runner = this.head
+        var size = 0
+        while(runner){
+            size ++
+            runner = runner.next
+        }
+        return size
     }
 }
 
