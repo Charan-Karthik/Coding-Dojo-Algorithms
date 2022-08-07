@@ -15,6 +15,7 @@ class Node {
 class SLL {
     constructor() {
         this.head = null;
+        this.size = 0;
     }
 
     // if the linked list has a second to last value, print it
@@ -22,7 +23,21 @@ class SLL {
     //                                       r
     // input: head -> (1) -> (5) -> (11) -> (7) -> (9) ->
     // print: 7
-    printSecondToLastValue() { }
+    printSecondToLastValue() {
+        if(this.head === null){
+            return "Empty SLL";
+        }
+
+        var runner = this.head;
+        if(runner.next === null){
+            return "List is not long enough to have a second to last node";
+        }
+
+        while(runner.next.next !== null){
+            runner = runner.next;
+        }
+        console.log(runner.value);
+    }
 
     // bonus: print nth to last
     // if the link list has a nth to last value, print it
@@ -31,7 +46,27 @@ class SLL {
     //        n = 4
     // print: 9
     // hint - use 2 runners 
-    printNthToLast(n) { }
+    printNthToLast(n) {
+        if(this.head === null){
+            return "Empty SLL";
+        }
+
+        var runner = this.head;
+        var runner2 = this.head;
+        for(var i=0; i<n; i++){
+            if(runner.next === null){
+                return "List is less than " + n + " nodes long";
+            }
+            runner = runner.next;
+        }
+
+        while(runner.next){
+            runner2 = runner2.next;
+            runner = runner.next;
+        }
+
+        console.log(runner2.value);
+    }
 
     // reverse linked list in place
     // ** you may not swap values between nodes **
@@ -72,6 +107,7 @@ class SLL {
         var removed = this.head; // save the head in a temp variable
         this.head = this.head.next; // move the head
         removed.next = null; // make removed no longer reference the list
+        this.size --;
         return removed;
     }
 
@@ -90,6 +126,7 @@ class SLL {
     addToFront(node) {
         node.next = this.head; // set the new node's next to the head
         this.head = node; // move the head to the new node
+        this.size ++;
     }
 
     // when a pointer is to the LEFT of an equal sign, we are CHANGING it
@@ -108,6 +145,7 @@ class SLL {
         var newNode = new Node(data); // create a new node with the data
         newNode.next = this.head; // set the new node's next to the head
         this.head = newNode; // move the head to the new node
+        this.size ++;
     }
 
     // if data is contained within the current list, delete it.
@@ -135,18 +173,33 @@ class SLL {
             if (runner.next.data == data) {
                 // remove it and return
                 runner.next = runner.next.next;
-                // this.length--;
+                this.size--;
                 return;
             }
             // otherwise traverse
             runner = runner.next;
         }
+
+        return "Data to be deleted is not in SLL";
     }
 
     // return the size of the current linked list
+    size() {
+        if (this.head === null){
+            return "Empty list";
+        }
+        var runner = this.head;
+        var size = 0;
+        while(runner){
+            size ++;
+            runner = runner.next;
+        }
+        return size;
+    }
     // BONUS: how might you do this without linearly traversing the list? O(1)
-    // you may have to change other methods within this class... 
-    size() { }
+    // you may have to change other methods within this class
+    // To find size with complexity of O(1), add something like "this.size = 0" to the SLL constructor, and then whenever a new node is added, increment the size by 1 (and whenver a node is removed, decrement the size by 1)
+    // Code snippets for size are included above
 }
 
 // Don't forget to instantiate the SLL!
