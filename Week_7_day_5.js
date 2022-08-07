@@ -72,7 +72,28 @@ class SLL {
     // ** you may not swap values between nodes **
     // input:  head -> (1) -> (2) -> (3) ->
     // output: head -> (3) -> (2) -> (1) ->
-    reverse() { }
+    reverse() {
+        if(this.head === null){
+            return "Empty SLL";
+        }
+
+        var previous = null;
+        var runner = this.head;
+        if(runner.next === null){
+            return "Nothing to reverse";
+        }
+        var next = runner.next;
+
+        while(runner){
+            runner.next = previous;
+            previous = runner;
+            runner = next;
+            if(next !== null) {
+                next = next.next;
+            }
+            this.head = previous;
+        }
+    }
 
     // console log (print) the data of every node in the current list
     read() {
