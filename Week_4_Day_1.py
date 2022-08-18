@@ -23,3 +23,26 @@ print(make_frequency_table(arr3))
 
 arr4 = ["r","r","a","q","h","a","h","a","h","a","1"," ","r"]
 print(make_frequency_table(arr4))
+
+# Given a non-empty array of odd length containing ints where every int but one
+# has a matching pair (another int that is the same)
+# return the only int that has no matching pair.
+
+def find_loner(arr):
+    new_hashmap = make_frequency_table(arr)
+
+    for key in new_hashmap:
+        if new_hashmap[key] % 2 != 0:
+            return key
+
+nums1 = [1]
+print(find_loner(nums1))
+
+nums2 = [5, 4, 5]
+print(find_loner(nums2))
+
+nums3 = [5, 4, 3, 4, 3, 4, 5]
+print(find_loner(nums3))
+
+nums4 = [5, 2, 6, 2, 3, 1, 6, 3, 2, 5, 2]
+print(find_loner(nums4))
