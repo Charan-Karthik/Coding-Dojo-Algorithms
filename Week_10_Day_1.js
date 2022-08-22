@@ -62,7 +62,25 @@ class slStack {
 
     // length getter
     getLength() {
-        
+        if(this.top === null){
+            return 0;
+        }
+        if(this.top.next === null){
+            return 1;
+        }
+
+        var tempStack = new slStack();
+        while(this.top !== null){
+            var nodeToTransfer = this.pop();
+            tempStack.push(nodeToTransfer);
+        }
+        var count = 0;
+        while(this.top !== null){
+            var tempNode = tempStack.pop();
+            this.push(tempNode);
+            count ++;
+        }
+        return count;
     }
 }
 
