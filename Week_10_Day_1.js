@@ -29,12 +29,22 @@ class slStack {
 
     // add to top
     push(newNode) {
-        
+        newNode.next = this.top;
+        this.top = newNode;
     }
 
     // remove from top
     pop() {
-
+        if(this.top === null){
+            return null;
+        }
+        var removedNode = this.top;
+        this.top = removedNode.next;
+        // edge case for if there's only one node in the stack; technically not needed, but saved a redunant reassignment
+        if(removedNode.next !== null){
+            removedNode.next = null;
+        }
+        return removedNode;
     }
 
     // aka check top
@@ -52,7 +62,7 @@ class slStack {
 
     // length getter
     getLength() {
-
+        
     }
 }
 
