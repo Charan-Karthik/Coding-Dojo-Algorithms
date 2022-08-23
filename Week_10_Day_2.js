@@ -91,5 +91,30 @@ class Queue {
 // you are not allowed to linearly traverse the queue
 // only use public methods enqueue(), dequeue(), peek(), isEmpty(), and count()
 function readQueue(queue) {
-    
+    if(queue.front === null){
+        return null;
+    }
+
+    var tempQ = new Queue();
+
+    while(queue.front !== null){
+        var tempNode = queue.dequeue();
+        console.log(tempNode.data);
+        tempQ.enqueue(tempNode);
+    }
+
+    while(tempQ.front !== null){
+        queue.enqueue(tempQ.dequeue());
+    }
 }
+
+var Q = new Queue();
+Q.enqueue(new Node(10));
+Q.enqueue(new Node(20));
+Q.enqueue(new Node(30));
+Q.enqueue(new Node(40));
+Q.enqueue(new Node(50));
+
+// console.log(Q);
+// console.log(Q.dequeue());
+readQueue(Q);
