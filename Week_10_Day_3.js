@@ -143,7 +143,38 @@ function countStack(stack) {}
 // reverseString = "elppa"
 // normalString = "apple"
 
-function isPalindrome(queue) {}
+function isPalindrome(queue) {
+    if(queue.front === null){
+        return false;
+    }
+
+    
+    if(queue.front.data !== queue.back.data){
+        return false;
+    }
+    
+    var tempQ = new Queue();
+    var originalString = "";
+
+    while(queue.front !== null){
+        var tempNode = queue.dequeue();
+        originalString += tempNode.data;
+        tempQ.enqueue(tempNode);
+    }
+
+    while(tempQ.front !== null){
+        var tempNode2 = tempQ.dequeue();
+        queue.enqueue(tempNode2);
+    }
+
+    // using built in methods for simplicity
+    // can be done without a built in method by using a for loop to iterate through the originalString from the end and create a reversedString from that
+    var originalArray = originalString.split("");
+    var reversedArray = originalArray.reverse();
+    var reversedString = reversedArray.join("");
+
+    return originalString === reversedString;
+}
 
 
 var myQueue = new Queue();
