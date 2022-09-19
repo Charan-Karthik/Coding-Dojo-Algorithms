@@ -1,3 +1,5 @@
+# NEED TO COMPLETE
+
 # Create a function that returns a boolean whether the string is a strict palindrome. 
 # Do not ignore spaces, punctuation and capitalization
 

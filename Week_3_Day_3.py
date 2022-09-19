@@ -1,3 +1,5 @@
+# NEED TO COMPLETE
+
 # You are given a string that may contain sequences of consecutive characters.
 # Create a function to shorten a string by including the character, then the 
 # number of times it appears. For "aaaabbcddd" return "a4b2c1d3"
