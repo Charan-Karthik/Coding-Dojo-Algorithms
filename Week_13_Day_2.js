@@ -28,10 +28,18 @@ const expected2 = [
 obj1.__proto__ = obj2;
 //   obj1.firstName = 'Jon';
 
-function entries(obj) { }
+function copyEntries(someObj) {
+    const resultArr = []
+    for (let key in someObj) {
+        if (someObj.hasOwnProperty(key)) {
+            resultArr.push([key, someObj[key]])
+        }
+    }
+    return resultArr
+}
 
-//   console.log(entries(obj1));
-//   console.log(entries(obj2));
+console.log(copyEntries(obj1));
+console.log(copyEntries(obj2));
 
 // ==================================================
 
@@ -42,7 +50,7 @@ function entries(obj) { }
   Bonus: after solving it, write a 2nd solution focusing on functional programming using built in methods
 */
 
-const table = "users";
+const table1 = "users";
 const insertData1 = { first_name: "John", last_name: "Doe" };
 const expectedA =
     "INSERT INTO users (first_name, last_name) VALUES ('John', 'Doe');";
@@ -57,21 +65,23 @@ const insertData2 = {
 const expectedB =
     "INSERT INTO users (first_name, last_name, age, is_admin) VALUES ('John', 'Doe', 30, false);";
 
-function insert(tableName, columnValuePairs) {
-    let output = 'INSERT INTO ' + tableName + ' (';
-    let values = '';
+function sqlInsert(table, someObj) {
+    const objEntries = copyEntries(someObj)
+    let query = "INSERT INTO " + table + " ("
 
-    for (let key in columnValuePairs) {
-        // console.log(key);
-        output += key + ', ';
-        values += JSON.stringify(columnValuePairs[key]) + ', '
+    for (let item of objEntries) {
+        query += item[0] + ","
     }
+    query = query.slice(0, query.length - 1) + ") VALUES ("
 
-    output = output.substring(0, output.length - 2) + ') VALUES (' + values.substring(0, values.length - 2) + ');';
+    for (let item of objEntries) {
+        query += item[1] + ","
+    }
+    query = query.slice(0, query.length - 1) + ");"
 
-    return output;
-
+    return query
 }
 
-console.log(insert(table, insertData1));
-console.log(insert(table, insertData2));
+console.log(sqlInsert(table1, insertData1));
+console.log(sqlInsert(table1, insertData2));
+console.log(sqlInsert("meals", obj1));
