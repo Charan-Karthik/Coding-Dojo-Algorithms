@@ -53,11 +53,27 @@ const T4 = "b";
 const expected4 = false;
 // Explanation: S becomes "c" while T becomes "b".
 
-function backspaceStringCompare(S, T) { }
+function findHashTag(str) {
+    let newStr = "";
+
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === "#") {
+            newStr = newStr.slice(0, -1);
+        } else {
+            newStr += str[i];
+        }
+    }
+
+    return newStr;
+}
+
+function backspaceCompare(S, T) {
+    return findHashTag(S) === findHashTag(T);
+}
 
 //--------- D ------------
 
-console.log(backspaceStringCompare(S1, T1))
-console.log(backspaceStringCompare(S2, T2))
-console.log(backspaceStringCompare(S3, T3))
-console.log(backspaceStringCompare(S4, T4))
+console.log(backspaceCompare(S1, T1))
+console.log(backspaceCompare(S2, T2))
+console.log(backspaceCompare(S3, T3))
+console.log(backspaceCompare(S4, T4))
