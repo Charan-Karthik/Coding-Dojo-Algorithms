@@ -14,7 +14,46 @@
 const str1 = "b70a164c32a20c10";
 const expected1 = "a184b70c42";
 
-function rehash(str) { }
+function rehash(str) {
+    const hashmap = {};
+    let numStr = "";
+    let key;
 
-rehash(str1);
+    // Phase 1
+    for(char of str){
+        if(isNaN(char)){
+            
+            if(hashmap.hasOwnProperty(key)){
+                hashmap[key] += parseInt(numStr);
+                numStr = ""
+            }
+
+            if(hashmap.hasOwnProperty(char)){
+                key = char;
+                continue
+            } else {
+                key = char;
+                hashmap[key] = 0;
+            }
+
+        } else {
+            numStr += char;
+        }
+    }
+    hashmap[key] += parseInt(numStr);
+
+    // Phase 2
+    const keyArr = Object.keys(hashmap);
+    keyArr.sort((l1, l2) => l1 > l2 ? 1 : -1);
+    
+    let resultStr = "";
+    for(char of keyArr){
+        resultStr += char;
+        resultStr += hashmap[char];
+    }
+
+    return resultStr
+}
+
+console.log(rehash(str1));
 // console.log(rehash(str1) === expected1, "<-- should be \"true\"");
