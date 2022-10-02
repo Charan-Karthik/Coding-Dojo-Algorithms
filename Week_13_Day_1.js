@@ -31,8 +31,24 @@ const output2 = [
     { firstName: "Bob", lastName: "Smith", age: 27 },
 ];
 
-function findObjectsFilter(searchObj, items) {
+function findObjectsFilter(searchObj, itemArr) {
+    const searchEntries = Object.entries(searchObj);
+    return itemArr.filter(item => {
+        let isPresent = true;
+        for (entry of searchEntries) {
+            if (!(item.hasOwnProperty(entry[0]))) {
+                isPresent = false;
+                console.log("made it here")
+                break
+            }
+            if (!(item[entry[0]] === entry[1])) {
+                isPresent = false;
+                break
+            }
+        }
+        return isPresent;
+    })
 }
 
-
-findObjectsFilter(searchFor1, items)
+console.log(findObjectsFilter(searchFor1, items))
+console.log(findObjectsFilter(searchFor2, items))
