@@ -29,22 +29,38 @@ output: [0,1]
 */
 
 // O(n^2) solution
+// function twoSums(arr, target) {
+//     const resultArr = [];
+//     for (let i = 0; i < arr.length; i++) {
+//         for (let j = i + 1; j < arr.length; j++) {
+//             if (arr[i] + arr[j] === target) {
+//                 resultArr.push(i, j);
+//             }
+//         }
+//     }
+//     return resultArr;
+// }
+
+// O(n) solution (work in progress)
 function twoSums(arr, target) {
-    const resultArr = [];
+    let resultArr = [];
+    let hashmap = {};
+
     for (let i = 0; i < arr.length; i++) {
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[i] + arr[j] === target) {
-                resultArr.push(i, j);
-            }
+        if(!(hashmap.hasOwnProperty(arr[i]))){
+            hashmap[arr[i]] = i;
+        }
+
+        let difference = target - arr[i]
+        if(hashmap.hasOwnProperty(difference)){
+            resultArr.push(hashmap[difference], i);
+            return resultArr;
         }
     }
+
     return resultArr;
 }
 
 console.log(twoSums([2, 11, 7, 15], 9)); // [0,2]
 console.log(twoSums([3, 2, 4], 6)); // [1,2]
 console.log(twoSums([3, 3], 6)); // [0,1]
-
-
-arr = [2, 11, 7, 5]
-console.log(twoSums(arr, 9));
