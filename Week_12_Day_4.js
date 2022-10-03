@@ -28,7 +28,18 @@ target: 6
 output: [0,1]
 */
 
-function twoSums(arr, target) { }
+// O(n^2) solution
+function twoSums(arr, target) {
+    const resultArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] + arr[j] === target) {
+                resultArr.push(i, j);
+            }
+        }
+    }
+    return resultArr;
+}
 
 console.log(twoSums([2, 11, 7, 15], 9)); // [0,2]
 console.log(twoSums([3, 2, 4], 6)); // [1,2]
@@ -36,6 +47,4 @@ console.log(twoSums([3, 3], 6)); // [0,1]
 
 
 arr = [2, 11, 7, 5]
-arr2 = [3, 4, 5, 6, 7, 8, 9, 8, 9]
 console.log(twoSums(arr, 9));
-console.log(twoSums(arr2, 9));
