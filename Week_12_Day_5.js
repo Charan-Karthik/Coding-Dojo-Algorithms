@@ -31,4 +31,17 @@ const expected2 = 0;
 */
 
 
-function diagonalDifference(sqrMatrix) { }
+function diagonalDifference(sqrMatrix) {
+    let leftDiagonalSum = 0;
+    let rightDiagonalSum = 0;
+
+    for (let i = 0; i < sqrMatrix.length; i++){
+        leftDiagonalSum += sqrMatrix[i][i];
+        rightDiagonalSum += sqrMatrix[i][sqrMatrix.length-1-i];
+    }
+
+    return Math.abs(leftDiagonalSum - rightDiagonalSum);
+}
+
+console.log(diagonalDifference(squareMatrix1));
+console.log(diagonalDifference(squareMatrix2));
