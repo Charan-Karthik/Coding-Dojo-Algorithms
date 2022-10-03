@@ -42,45 +42,45 @@ output: [0,1]
 // }
 
 // O(n)+ solution
-function twoSums(arr, target) {
-    let resultArr = [];
-    let hashmap = {};
-
-    for (let i = 0; i < arr.length; i++) {
-        hashmap[arr[i]] = i;
-    }
-
-    for (let j = 0; j < arr.length; j++){
-        let difference = target - arr[j];
-
-        if(hashmap[difference] !== null && hashmap[difference] !== j){
-            resultArr.push(j, hashmap[difference]);
-            return resultArr;
-        }
-    }
-
-    return resultArr;
-}
-
-// // O(n) solution (work in progress)
 // function twoSums(arr, target) {
 //     let resultArr = [];
 //     let hashmap = {};
 
 //     for (let i = 0; i < arr.length; i++) {
-//         if(!(hashmap.hasOwnProperty(arr[i]))){
-//             hashmap[arr[i]] = i;
-//         }
+//         hashmap[arr[i]] = i;
+//     }
 
-//         let difference = target - arr[i]
-//         if(hashmap.hasOwnProperty(difference)){
-//             resultArr.push(hashmap[difference], i);
+//     for (let j = 0; j < arr.length; j++){
+//         let difference = target - arr[j];
+
+//         if(hashmap[difference] !== null && hashmap[difference] !== j){
+//             resultArr.push(j, hashmap[difference]);
 //             return resultArr;
 //         }
 //     }
 
 //     return resultArr;
 // }
+
+// // O(n) solution (work in progress)
+function twoSums(arr, target) {
+    let resultArr = [];
+    let hashmap = {};
+
+    for (let i = 0; i < arr.length; i++) {
+        if(!(hashmap.hasOwnProperty(arr[i]))){
+            hashmap[arr[i]] = i;
+        }
+
+        let difference = target - arr[i]
+        if(hashmap.hasOwnProperty(difference) && hashmap[difference] !== i){
+            resultArr.push(hashmap[difference], i);
+            return resultArr;
+        }
+    }
+
+    return resultArr;
+}
 
 console.log(twoSums([2, 11, 7, 15], 9)); // [0,2]
 console.log(twoSums([3, 2, 4], 6)); // [1,2]
