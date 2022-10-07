@@ -19,7 +19,17 @@ class DLList {
     // push to head
     // myDll.addHead(new DLLNode(33));
     // push to head
-    addHead(node) {    }
+    addHead(node) {
+        if(this.head === null){
+            this.head = node;
+            this.tail = node;
+        } else {
+            runner = this.head;
+            runner.previous = node;
+            node.next = runner;
+            this.head = node;
+        }
+    }
 
     // pop from tail
     removeTail() {    }
