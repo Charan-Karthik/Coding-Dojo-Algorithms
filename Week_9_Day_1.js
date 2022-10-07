@@ -45,7 +45,17 @@ class DLList {
     // == Bonus Methods, just inverted versions of the first set ==
 
     // push to tail
-    addTail(node) { }
+    addTail(node) {
+        if(this.tail === null){
+            this.tail = node;
+            this.head = node;
+        } else {
+            runner = this.tail;
+            runner.next = node;
+            node.previous = runner;
+            this.tail = node;
+        }
+    }
 
     // pop from head
     removeHead() { }
