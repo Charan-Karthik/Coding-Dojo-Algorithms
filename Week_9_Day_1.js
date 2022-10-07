@@ -58,7 +58,22 @@ class DLList {
     }
 
     // pop from head
-    removeHead() { }
+    removeHead() {
+        if(this.head === null){
+            return null;
+        } else {
+            runner = this.head;
+            this.head = runner.next;
+            if(this.head === null){
+                this.tail = null;
+                return runner;
+            } else {
+                runner.next = null;
+                this.head.previous = null;
+                return runner;
+            }
+        }
+    }
 }
 // Remember to instantiate the DLL!!
 // add a few nodes ex. // myDll.addHead(new DLLNode(33));
