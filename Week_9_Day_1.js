@@ -32,7 +32,22 @@ class DLList {
     }
 
     // pop from tail
-    removeTail() {    }
+    removeTail() {
+        if(this.tail === null){
+            return null
+        } else {
+            runner = this.tail;
+            this.tail = runner.previous;
+            if(this.tail === null){
+                this.head = null;
+                return runner;
+            } else {
+                runner.previous = null;
+                this.tail.next = null;
+                return runner;
+            }
+        }
+    }
 
     // return is empty
     isEmpty() {
