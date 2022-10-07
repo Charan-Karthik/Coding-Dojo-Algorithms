@@ -24,7 +24,7 @@ class DLList {
             this.head = node;
             this.tail = node;
         } else {
-            runner = this.head;
+            let runner = this.head;
             runner.previous = node;
             node.next = runner;
             this.head = node;
@@ -36,7 +36,7 @@ class DLList {
         if(this.tail === null){
             return null
         } else {
-            runner = this.tail;
+            let runner = this.tail;
             this.tail = runner.previous;
             if(this.tail === null){
                 this.head = null;
@@ -55,7 +55,25 @@ class DLList {
     }
 
     // return length
-    size() { }
+    size() {
+        if(this.head === null){
+            return 0;
+        }
+        if(this.head === this.tail){
+            return 1;
+        }
+
+        let count = 1;
+        let runner = this.head;
+        while(runner !== null){
+            if(runner.next !== null){
+                count ++;
+            }
+            runner = runner.next;
+        }
+
+        return count;
+    }
 
     // == Bonus Methods, just inverted versions of the first set ==
 
@@ -65,7 +83,7 @@ class DLList {
             this.tail = node;
             this.head = node;
         } else {
-            runner = this.tail;
+            let runner = this.tail;
             runner.next = node;
             node.previous = runner;
             this.tail = node;
@@ -77,7 +95,7 @@ class DLList {
         if(this.head === null){
             return null;
         } else {
-            runner = this.head;
+            let runner = this.head;
             this.head = runner.next;
             if(this.head === null){
                 this.tail = null;
