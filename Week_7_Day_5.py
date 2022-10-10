@@ -79,3 +79,12 @@ class SLL:
                 runner = runner.next
             
             return length
+    
+    def printSecondToLastValue(self):
+        return "in progress..."
+
+    def printNthToLast(self, n):
+        return "in progress..."
+
+    def reverse():
+        return "in progress..."
