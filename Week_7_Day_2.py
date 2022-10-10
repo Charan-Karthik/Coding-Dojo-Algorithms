@@ -16,8 +16,8 @@ class SLL:
             currentNode = currentNode.next
     
     def isEmpty(self):
-        return self.head == None
-        # return True if self.head == None else False
+        # return self.head == None
+        return True if self.head == None else False
         # ^ practicing ternary in python
     
     def addToFront(self, node):
@@ -30,6 +30,8 @@ class SLL:
 
 mySLL = SLL()
 mySLL.addToFront(Node(20))
+print(mySLL.isEmpty())
+mySLL.printSLL()
 mySLL.addToFront(Node(15))
 mySLL.addToFront(Node(10))
 mySLL.printSLL()
