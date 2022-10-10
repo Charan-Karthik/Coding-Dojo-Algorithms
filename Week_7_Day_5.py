@@ -117,12 +117,23 @@ class SLL:
         print("Node that is", n, "places away from the end has a value of", str(runner2.value) + ".")
         return
 
-    def reverse():
-        return "in progress..."
+    def reverse(self):
+        if self.head == None:
+            print("Empty SLL cannot be reversed")
+            return
+        
+        runner = self.head
+        if runner.next == None:
+            print("SLL with only one element is already reversed")
+        previousNode = None
+        nextNode = runner.next
 
-
-mySLL = SLL()
-mySLL.addDataToFront(10)
-mySLL.addDataToFront(20)
-mySLL.addDataToFront(15)
-mySLL.printNthToLast(4)
+        while runner:
+            runner.next = previousNode
+            previousNode = runner
+            runner = nextNode
+            if nextNode is not None:
+                nextNode = nextNode.next
+            self.head = previousNode
+        
+        return self
