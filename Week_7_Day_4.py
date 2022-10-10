@@ -67,3 +67,15 @@ class SLL:
         runner.next = temp.next
         temp.next = None
         return temp.value
+    
+    def size(self):
+        if not self.head:
+            return 0
+        else:
+            runner = self.head
+            length = 0
+            while runner:
+                length += 1
+                runner = runner.next
+            
+            return length
