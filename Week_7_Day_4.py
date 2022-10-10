@@ -32,8 +32,8 @@ class SLL:
     def contains(self, value):
         runner = self.head
         
-        while(runner):
-            if(runner.value == value):
+        while runner:
+            if runner.value == value:
                 return True
             else:
                 runner = runner.next
@@ -49,3 +49,21 @@ class SLL:
         runner.next = None
 
         return runner.value
+    
+    def delete(self, data):
+        if not self.head:
+            return None
+        
+        runner = self.head
+        if runner.value == data:
+            self.head = runner.next
+            runner.next = None
+            return runner.value
+        
+        while runner.next is not None and runner.next.value != data:
+            runner = runner.next
+
+        temp = runner.next
+        runner.next = temp.next
+        temp.next = None
+        return temp.value
