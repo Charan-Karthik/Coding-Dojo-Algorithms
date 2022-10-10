@@ -30,12 +30,9 @@ class SLL:
         node.next = self.head
         self.head = node
         return self
-
-
-mySLL = SLL()
-mySLL.addToFront(Node(20))
-print(mySLL.isEmpty())
-mySLL.printSLL()
-mySLL.addToFront(Node(15))
-mySLL.addToFront(Node(10))
-mySLL.printSLL()
+    
+    def addDataToFront(self, data):
+        newNode = Node(data)
+        newNode.next = self.head
+        self.head = newNode
+        return self
