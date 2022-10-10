@@ -81,10 +81,29 @@ class SLL:
             return length
     
     def printSecondToLastValue(self):
-        return "in progress..."
+        if self.head == None:
+            print("Empty SLL")
+            return
+        
+        runner = self.head
+        if(runner.next == None):
+            print("SLL only has one element, does not have a second to last node")
+            return
+        
+        while runner.next.next != None:
+            runner = runner.next
+        
+        print("Second to last node has a value of", str(runner.value) + ".")
+        return 
 
     def printNthToLast(self, n):
         return "in progress..."
 
     def reverse():
         return "in progress..."
+
+
+mySLL = SLL()
+mySLL.addDataToFront(10)
+mySLL.addDataToFront(20)
+# mySLL.printSecondToLastValue()
