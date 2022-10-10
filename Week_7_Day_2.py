@@ -21,11 +21,15 @@ class SLL:
         # ^ practicing ternary in python
     
     def addToFront(self, node):
-        if(self.head == None):
-            self.head = node
-        else:
-            node.next = self.head
-            self.head = node
+        # if(self.head == None):
+        #     self.head = node
+        # else:
+        #     node.next = self.head
+        #     self.head = node
+
+        node.next = self.head
+        self.head = node
+        return self
 
 
 mySLL = SLL()
