@@ -29,7 +29,7 @@ class SLL:
 
 
 mySLL = SLL()
-mySLL.addToFront(Node(10))
-mySLL.addToFront(Node(15))
 mySLL.addToFront(Node(20))
+mySLL.addToFront(Node(15))
+mySLL.addToFront(Node(10))
 mySLL.printSLL()
