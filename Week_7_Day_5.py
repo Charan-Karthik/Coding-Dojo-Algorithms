@@ -97,7 +97,25 @@ class SLL:
         return 
 
     def printNthToLast(self, n):
-        return "in progress..."
+        if self.head == None:
+            print("Empty SLL")
+            return
+        
+        runner = self.head
+        runner2 = self.head
+        for i in range(n):
+            if(runner == None):
+                print("SLL is less than", n, "nodes long.")
+                return
+            
+            runner = runner.next
+        
+        while runner:
+            runner2 = runner2.next
+            runner = runner.next
+        
+        print("Node that is", n, "places away from the end has a value of", str(runner2.value) + ".")
+        return
 
     def reverse():
         return "in progress..."
@@ -106,4 +124,5 @@ class SLL:
 mySLL = SLL()
 mySLL.addDataToFront(10)
 mySLL.addDataToFront(20)
-# mySLL.printSecondToLastValue()
+mySLL.addDataToFront(15)
+mySLL.printNthToLast(4)
