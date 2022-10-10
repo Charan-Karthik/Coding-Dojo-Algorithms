@@ -36,3 +36,24 @@ class SLL:
         newNode.next = self.head
         self.head = newNode
         return self
+    
+    def contains(self, value):
+        runner = self.head
+        
+        while(runner):
+            if(runner.value == value):
+                return True
+            else:
+                runner = runner.next
+        
+        return False
+    
+    def removeFromFront(self):
+        if self.head == None:
+            return None
+        
+        runner = self.head
+        self.head = runner.next
+        runner.next = None
+
+        return runner.value
