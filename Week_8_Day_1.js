@@ -37,7 +37,7 @@ class BST {
 
     /* recursive insert
 
-          the new Node(val) we want to insert
+        the new Node(val) we want to insert
             |
             |     pass a changed current as we call the function again
             |       |
