@@ -1,4 +1,4 @@
-pokemon = [
+pokemonList = [
     { "id": 1,   "name": "Bulbasaur",  "types": ["poison", "grass"] },
     { "id": 5,   "name": "Charmeleon", "types": ["fire"] },
     { "id": 9,   "name": "Blastoise",  "types": ["water"] },
@@ -25,13 +25,31 @@ pokemon = [
 ];
 
 # Print names of pokemon with id greater than 99
+# for pokemon in pokemonList:
+#     if pokemon['id'] > 99:
+#         print(pokemon['name'])
 
 # Print pokemon objects with id evenly divisible by 3
+# for pokemon in pokemonList:
+#     if pokemon['id'] % 3 == 0:
+#         print(pokemon)
 
 # Print pokemon objects with more than one type
+# for pokemon in pokemonList:
+#     if len(pokemon['types']) > 1:
+#         print(pokemon)
 
 # Print pokemon names whose only type is poison
+# for pokemon in pokemonList:
+#     if len(pokemon['types']) == 1 and pokemon['types'][0] == 'poison':
+#         print(pokemon['name'])
 
 # Print pokemon names whose second type is flying
+# for pokemon in pokemonList:
+#     if len(pokemon['types']) > 1 and pokemon['types'][1] == 'flying':
+#         print(pokemon['name'])
 
 # Print the reverse of the names of pokemon whose only type is poison
+# for pokemon in pokemonList:
+#     if len(pokemon['types']) == 1 and pokemon['types'][0] == 'poison':
+#         print(pokemon['name'][::-1])
