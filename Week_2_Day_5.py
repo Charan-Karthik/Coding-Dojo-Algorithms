@@ -20,5 +20,19 @@ def flatten(arr2d):
     
     return flattened
 
-print(flatten((arr)))
-print(flatten((other)))
+# print(flatten((arr)))
+# print(flatten((other)))
+
+# Flip an array (assume square array)
+def flip(arr2d):
+    # print('before', arr2d)
+    arr2d.reverse()
+    # print('after', arr2d)
+
+    for i in range(len(arr2d)):
+        arr2d[i].reverse()
+    
+    return arr2d
+
+print(flip(arr))
+print(flip(other))
