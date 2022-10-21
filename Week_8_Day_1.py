@@ -13,10 +13,10 @@ class BST:
     def isEmpty(self):
         return self.root == None
     
-    def insert(self, node, current = this.root):
+    def insert(self, node, current = self.root):
         
         if current == None:
-            this.root = node
+            self.root = node
             return
         
         if node.value > current.value:
