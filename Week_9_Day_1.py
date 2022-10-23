@@ -18,7 +18,7 @@ class DLList:
         return
     
     def isEmpty(self):
-        return
+        return self.head == None
     
     def size(self):
         return
