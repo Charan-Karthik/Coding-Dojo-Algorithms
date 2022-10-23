@@ -31,3 +31,5 @@ class BST:
                 return
             else:
                 self.insert(node, current.left)
+
+# Needs to be tested still
