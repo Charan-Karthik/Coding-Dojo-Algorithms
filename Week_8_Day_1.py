@@ -13,6 +13,7 @@ class BST:
     def isEmpty(self):
         return self.root == None
     
+    # There is a bug with the below method
     def insert(self, node, current = self.root):
         
         if current == None:
@@ -33,3 +34,6 @@ class BST:
                 self.insert(node, current.left)
 
 # Needs to be tested still
+
+myBST = BST()
+print(myBST.isEmpty())
