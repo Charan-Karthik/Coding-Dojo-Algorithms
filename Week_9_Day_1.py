@@ -12,7 +12,16 @@ class DLList:
         self.tail = None
     
     def addHead(self, node):
-        return
+        if self.head == None:
+            self.head = node
+            self.tail = node
+        else:
+            runner = self.head
+            runner.previous = node
+            node.next = runner
+            self.head = node
+        
+        return self
 
     def removeTail(self):
         return
@@ -27,4 +36,15 @@ class DLList:
         return
 
     def removeHead(self):
-        return
+        if self.head == None:
+            return None
+        else:
+            runner = self.head
+            self.head = runner.next
+            if self.head == None:
+                self.tail = None
+                return runner
+            else:
+                runner.next = None
+                self.head.previous = None
+                return runner
