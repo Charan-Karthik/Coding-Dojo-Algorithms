@@ -56,7 +56,16 @@ class DLList:
         return count
 
     def addTail(self, node):
-        return
+        if self.tail == None:
+            self.tail = node
+            self.head = node
+        else:
+            runner = self.tail
+            runner.next = node
+            node.previous = runner
+            self.tail = node
+
+        return self
 
     def removeHead(self):
         if self.head == None:
