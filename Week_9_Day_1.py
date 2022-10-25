@@ -41,7 +41,19 @@ class DLList:
         return self.head == None
     
     def size(self):
-        return
+        if self.head == None:
+            return 0
+        if self.head == self.tail:
+            return 1
+        
+        count = 1
+        runner = self.tail
+        while runner != None:
+            if(runner.next != None):
+                count += 1
+            runner = runner.next
+            
+        return count
 
     def addTail(self, node):
         return
