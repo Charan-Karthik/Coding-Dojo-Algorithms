@@ -52,7 +52,7 @@ class DLList:
             if(runner.next != None):
                 count += 1
             runner = runner.next
-            
+
         return count
 
     def addTail(self, node):
@@ -71,3 +71,5 @@ class DLList:
                 runner.next = None
                 self.head.previous = None
                 return runner
+
+# Needs to be tested still
