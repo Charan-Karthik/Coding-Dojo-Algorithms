@@ -24,7 +24,18 @@ class DLList:
         return self
 
     def removeTail(self):
-        return
+        if self.tail == None:
+            return None
+        else:
+            runner = self.tail
+            self.tail = runner.previous
+            if self.tail == None:
+                self.head = None
+                return runner
+            else:
+                runner.previous = None
+                self.tail.next = None
+                return runner
     
     def isEmpty(self):
         return self.head == None
