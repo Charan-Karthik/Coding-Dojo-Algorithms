@@ -36,3 +36,9 @@ class SLL:
         newNode.next = self.head
         self.head = newNode
         return self
+
+myCoolSLL = SLL()
+# print(myCoolSLL)
+
+myCoolSLL.addDataToFront(10)
+# print(myCoolSLL.head.value)
