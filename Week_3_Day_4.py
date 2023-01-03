@@ -20,6 +20,9 @@ def isPalindrome(string):
 # For this challenge, we will look not only at the entire string provided, but also at the substrings within it.
 # Return the longest palindromic substring. 
 
+def longestPalindrome(string):
+    pass
+
 
 print(isPalindrome('racecar'))
 print(isPalindrome('tacodog'))
