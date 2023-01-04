@@ -5,10 +5,11 @@ def make_frequency_table(some_list):
     frequency_table = {}
 
     for item in some_list:
-        if item not in frequency_table:
-            frequency_table[item] = 1
-        else:
-            frequency_table[item] += 1
+        # if item not in frequency_table:
+        #     frequency_table[item] = 1
+        # else:
+        #     frequency_table[item] += 1
+        frequency_table[item] = frequency_table.get(item, 0) + 1
     
     return frequency_table
 
