@@ -56,4 +56,22 @@ class BST {
             this.getLargestRecursive(current.right);
         }
     };
+
+    find(val, current) {
+        if (current === undefined) {
+            current = this.root;
+        }
+
+        if (current === null) {
+            return false;
+        }
+
+        if (val === current.value) {
+            return true;
+        } else if (val < current.value) {
+            return this.find(val, current.left);
+        } else {
+            return this.find(val, current.right);
+        }
+    }
 };
