@@ -73,5 +73,5 @@ class BST {
         } else {
             return this.find(val, current.right);
         }
-    }
+    };
 };
