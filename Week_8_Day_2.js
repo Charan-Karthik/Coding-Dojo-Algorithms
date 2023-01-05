@@ -7,14 +7,14 @@ class BST {
         return this.root === null;
     };
 
-    insert(node, current=this.root) {
-        if(current === null){
+    insert(node, current = this.root) {
+        if (current === null) {
             this.root = node;
             return;
         }
 
-        if(node.value > current.value){
-            if(current.right === null){
+        if (node.value > current.value) {
+            if (current.right === null) {
                 current.right = node;
                 return;
             } else {
@@ -22,8 +22,8 @@ class BST {
             }
         }
 
-        if(node.value < current.value){
-            if(current.left === null){
+        if (node.value < current.value) {
+            if (current.left === null) {
                 current.left = node;
                 return;
             } else {
@@ -32,20 +32,28 @@ class BST {
         }
     };
 
-    getSmallestIterative(){
+    getSmallestIterative() {
         let current = this.root;
-        if (current === null){
+        if (current === null) {
             return;
         }
 
-        while (current.left != null){
+        while (current.left != null) {
             current = current.left;
         }
 
         return current.value;
     };
 
-    getSmallestRecursive(current = this.root){
-        return;
+    getLargestRecursive(current = this.root) {
+        if (current === null) {
+            return;
+        };
+
+        if (current.right === null) {
+            return current.value;
+        } else {
+            this.getLargestRecursive(current.right);
+        }
     };
 };
