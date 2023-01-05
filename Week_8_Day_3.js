@@ -74,4 +74,42 @@ class BST {
             return this.find(val, current.right);
         }
     };
+
+    removeLargest(runner = this.root) {
+        if (this.root === null) {
+            return false;
+        }
+
+        if (runner.right === null) {
+            this.root = runner.left;
+            runner.left = null;
+            return runner;
+        } else if (runner.right.right === null) {
+            let temp = runner.right;
+            runner.right = temp.left;
+            temp.left = null;
+            return temp;
+        } else {
+            return this.removeLargest(runner.right);
+        }
+    };
+
+    removeSmallest(runner = this.root) {
+        if (runner === null) {
+            return false;
+        }
+
+        if (runner.left.left === null) {
+            this.root = runner.right;
+            runner.right = null;
+            return runner;
+        } else if (runner.left.left === null) {
+            let temp = runner.left;
+            runner.left = temp.right;
+            temp.right = null;
+            return temp;
+        } else {
+            return this.removeSmallest(runner.left);
+        }
+    };
 };
