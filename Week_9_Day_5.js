@@ -74,4 +74,25 @@ class DLList {
 
         return true;
     }
+
+    // not as efficient because it goes through the entire DLL instead of stopping in the middle
+    isPalindromeV2() {
+        if (this.head === null) {
+            return false;
+        }
+
+        let left = this.head;
+        let right = this.tail;
+
+        while (left.value === right.value) {
+            left = left.next;
+            right = right.previous;
+
+            if (left === null) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
