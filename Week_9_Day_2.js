@@ -31,8 +31,20 @@ class DLList {
         }
     }
 
+    addTail(node) {
+        if(this.tail === null){
+            this.tail = node;
+            this.head = node;
+        } else {
+            let runner = this.tail;
+            runner.next = node;
+            node.previous = runner;
+            this.tail = node;
+        }
+    }
+
     prepend(node, target){
-        runner = this.head;
+        let runner = this.head;
         if (runner === null) {
             return null;
         }
@@ -45,16 +57,40 @@ class DLList {
         }
 
         if (runner = this.head) {
-            node.next = runner;
-            this.head = node;
-            runner.previous = node
-        }
-        else {
+            this.addHead(node);
+        } else {
             let previous = runner.previous;
             node.next = runner;
             node.previous = previous;
             runner.previous = node;
             previous.next = node;
+        }
+
+        return this;
+    }
+
+    append(node, target){
+        let runner = this.tail;
+
+        if (runner === null) {
+            return null;
+        }
+
+        while (runner.value != target) {
+            runner = runner.previous;
+            if (runner === null) {
+                return null;
+            }
+        }
+
+        if (runner === this.tail) {
+            this.addTail(node);
+        } else {
+            let next = runner.net;
+            node.previous = runner;
+            node.next = next;
+            runner.next = node;
+            next.previous = node;
         }
 
         return this;
