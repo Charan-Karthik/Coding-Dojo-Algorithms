@@ -14,13 +14,13 @@ class DLList {
         this.tail = null;
     }
 
-     // == Main Methods ==
+    // == Main Methods ==
 
     // push to head
     // myDll.addHead(new DLLNode(33));
     // push to head
     addHead(node) {
-        if(this.head === null){
+        if (this.head === null) {
             this.head = node;
             this.tail = node;
         } else {
@@ -33,12 +33,12 @@ class DLList {
 
     // pop from tail
     removeTail() {
-        if(this.tail === null){
+        if (this.tail === null) {
             return null
         } else {
             let runner = this.tail;
             this.tail = runner.previous;
-            if(this.tail === null){
+            if (this.tail === null) {
                 this.head = null;
                 return runner;
             } else {
@@ -49,45 +49,64 @@ class DLList {
         }
     }
 
-    // return is empty
-    isEmpty() {
-        return this.head === null;
-    }
-
-    // return length
-    size() {
-        if(this.head === null){
-            return 0;
-        }
-        if(this.head === this.tail){
-            return 1;
-        }
-
-        let count = 1;
-        let runner = this.head;
-        while(runner !== null){
-            if(runner.next !== null){
-                count ++;
+    removeHead() {
+        if (this.head === null) {
+            return null;
+        } else {
+            let runner = this.head;
+            this.head = runner.next;
+            if (this.head === null) {
+                this.tail = null;
+                return runner;
+            } else {
+                runner.next = null;
+                this.head.previous = null;
+                return runner;
             }
-            runner = runner.next;
         }
-
-        return count;
     }
 
-    exists(val){
+    exists(val) {
         let runner = this.head;
-        if (runner === null){
+        if (runner === null) {
             return false;
         }
 
-        while (runner.value !== val){
+        while (runner.value !== val) {
             runner = runner.next;
-            if(runner === null){
+            if (runner === null) {
                 return false
             }
         }
 
         return true;
+    }
+
+    remove(val) {
+        let isThere = this.exists(val);
+
+        if (!isThere) {
+            return null;
+        }
+
+        let runner = this.head;
+        while (runner.value != - val) {
+            runner = runner.next;
+        }
+
+        if (runner === this.head) {
+            this.removeHead();
+            return this;
+        } else if (runner === this.tail) {
+            this.removeTail();
+            return this;
+        } else {
+            runner.previous.next = runner.next;
+            runner.next.previous = runner.previous;
+            runner.next = null;
+            runner.previous = null;
+        }
+
+        return runner;
     }
 }
