@@ -14,13 +14,13 @@ class DLList {
         this.tail = null;
     }
 
-     // == Main Methods ==
+    // == Main Methods ==
 
     // push to head
     // myDll.addHead(new DLLNode(33));
     // push to head
     addHead(node) {
-        if(this.head === null){
+        if (this.head === null) {
             this.head = node;
             this.tail = node;
         } else {
@@ -33,12 +33,12 @@ class DLList {
 
     // pop from tail
     removeTail() {
-        if(this.tail === null){
+        if (this.tail === null) {
             return null
         } else {
             let runner = this.tail;
             this.tail = runner.previous;
-            if(this.tail === null){
+            if (this.tail === null) {
                 this.head = null;
                 return runner;
             } else {
@@ -56,18 +56,18 @@ class DLList {
 
     // return length
     size() {
-        if(this.head === null){
+        if (this.head === null) {
             return 0;
         }
-        if(this.head === this.tail){
+        if (this.head === this.tail) {
             return 1;
         }
 
         let count = 1;
         let runner = this.head;
-        while(runner !== null){
-            if(runner.next !== null){
-                count ++;
+        while (runner !== null) {
+            if (runner.next !== null) {
+                count++;
             }
             runner = runner.next;
         }
@@ -79,7 +79,7 @@ class DLList {
 
     // push to tail
     addTail(node) {
-        if(this.tail === null){
+        if (this.tail === null) {
             this.tail = node;
             this.head = node;
         } else {
@@ -92,12 +92,12 @@ class DLList {
 
     // pop from head
     removeHead() {
-        if(this.head === null){
+        if (this.head === null) {
             return null;
         } else {
             let runner = this.head;
             this.head = runner.next;
-            if(this.head === null){
+            if (this.head === null) {
                 this.tail = null;
                 return runner;
             } else {

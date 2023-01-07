@@ -14,13 +14,13 @@ class DLList {
         this.tail = null;
     }
 
-     // == Main Methods ==
+    // == Main Methods ==
 
     // push to head
     // myDll.addHead(new DLLNode(33));
     // push to head
     addHead(node) {
-        if(this.head === null){
+        if (this.head === null) {
             this.head = node;
             this.tail = node;
         } else {
@@ -32,7 +32,7 @@ class DLList {
     }
 
     addTail(node) {
-        if(this.tail === null){
+        if (this.tail === null) {
             this.tail = node;
             this.head = node;
         } else {
@@ -43,7 +43,7 @@ class DLList {
         }
     }
 
-    prepend(node, target){
+    prepend(node, target) {
         let runner = this.head;
         if (runner === null) {
             return null;
@@ -69,7 +69,7 @@ class DLList {
         return this;
     }
 
-    append(node, target){
+    append(node, target) {
         let runner = this.tail;
 
         if (runner === null) {
