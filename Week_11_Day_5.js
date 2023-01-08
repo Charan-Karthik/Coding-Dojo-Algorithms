@@ -3,12 +3,15 @@
 
 function mergeSort(arr) {
     
+    let arr1;
+    let arr2;
+    
     if (arr.length === 1) {
         return arr;
     } else {
         let mid = Math.ceil(arr.length / 2);
-        let arr1 = arr.slice(0, mid);
-        let arr2 = arr.slice(mid);
+        arr1 = arr.slice(0, mid);
+        arr2 = arr.slice(mid);
     }
 
     let leftPortion = mergeSort(arr1);
