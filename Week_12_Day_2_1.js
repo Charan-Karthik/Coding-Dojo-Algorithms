@@ -11,16 +11,12 @@ var arrA = [1, 3, 4, 5];
 var arrB = [1, 3, 3, 5, 8, 10,];
 
 function mergeDedupe(arr1, arr2) {
-    let set1 = new Set(arr1);
-    let set2 = new Set(arr2);
 
-    // console.log(set1);
-    // console.log(set2);
 }
 
 // try out some other tests
 mergeDedupe([1, 3, 3, 5, 8, 10], [1, 3, 4, 5]) // [ 1, 3, 4, 5, 8, 10 ]
-mergeDedupe([2,3,3,5,8,10,12], [1,3,4,6]) // [1, 2, 3, 4, 5, 6, 8, 10, 12]
+mergeDedupe([2, 3, 3, 5, 8, 10, 12], [1, 3, 4, 6]) // [1, 2, 3, 4, 5, 6, 8, 10, 12]
 
 //   a -> 
 //     [1, 3, 3, 5, 8, 10]
