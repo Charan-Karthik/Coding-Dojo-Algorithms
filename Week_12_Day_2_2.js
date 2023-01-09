@@ -34,18 +34,27 @@ const expected3 = [];
  *    deduped.
  */
 function orderedIntersection(sortedA, sortedB) {
+  let res = new Set();
+  let shorterArray;
+  let longerArray;
 
+  if (sortedA.length < sortedB.length) {
+    shorterArray = sortedA;
+    longerArray = sortedB;
+  } else {
+    shorterArray = sortedB;
+    longerArray = sortedA;
+  }
+
+  let shorterSet = new Set(shorterArray);
+
+  for (let i = 0; i < longerArray.length; i++) {
+    if (shorterSet.has(longerArray[i]) && !res.has(longerArray[i])) {
+      res.add(longerArray[i]);
+    }
+  }
+
+  return Array.from(res);
 }
 
-orderedIntersection(arrA1, arrB1)
-
-
-
-/**
- * asdsad
- * @param {String} name 
- * @returns {String} "hello"
- */
-function hi(name) {
-    return "hello"
-}
+console.log(orderedIntersection(arrA1, arrB1));
