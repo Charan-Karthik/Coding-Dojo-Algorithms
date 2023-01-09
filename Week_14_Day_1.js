@@ -3,3 +3,21 @@
 // The callback function takes in the iterated element of the array.
 // Return an empty array if the callback function never returns true.
 
+function dropIt(arr, callback) {
+    const res = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (callback(arr[i])) {
+            break
+        }
+    }
+
+    if (i === arr.length) {
+        return res;
+    } else {
+        for (let j = i; j < arr.length; j++) {
+            res.push(arr[j]);
+        }
+    }
+
+    return res;
+}
